@@ -53,5 +53,25 @@ namespace Banco.Datos
             c.Monto = c.Monto + deposito;
             return c.Monto;
         }
+        public decimal Retirar(string nombre, decimal retiro)
+        {
+            Cliente c;
+            c = ObtenerClientePorNombre(nombre);
+            if (c.Monto > retiro)
+            {
+                c.Monto = c.Monto - retiro;
+            }
+            return c.Monto;
+        }
+        //SaldoTotal > La suma del monto de todos los clientes
+        public decimal SaldoTotal(List<Cliente> lc)
+        {
+            decimal TotalBanco = 0;
+            foreach (Cliente c in lc)
+            {
+                TotalBanco = TotalBanco + c.Monto;
+            } 
+            return TotalBanco;
+        }
     }
 }
