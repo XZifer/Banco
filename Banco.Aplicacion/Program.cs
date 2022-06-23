@@ -11,7 +11,7 @@ namespace Banco.Aplicacion
             Console.WriteLine("Bienvenido a su banco");
             //Identificarse
             SeleccionarCliente();
-            
+
         }
 
         private static void SeleccionarCliente()
@@ -19,7 +19,7 @@ namespace Banco.Aplicacion
             //Selecciona un cliente
             Cliente ClienteSeleccionado = null;
             Clientes clientes = new Clientes();
-            
+
             while (ClienteSeleccionado == null)
             {
                 Console.WriteLine("Ingrese su nombre:");
@@ -40,12 +40,42 @@ namespace Banco.Aplicacion
                         Console.WriteLine("Cliente no encontrado");
                         break;
                 }
-                
+
             }
             //Mostrar cliente
             BancoDatos banco = new BancoDatos();
             Console.WriteLine(banco.ObtenerFichaCliente(ClienteSeleccionado));
+            //Preguntar si quiere hacer alguna operacion 
+            string operacion = null;
+            string retiro;
+            while (operacion == null)
+            {
+                Console.WriteLine("Desea : R-Retirar D-Depositar S-Salir");
+                operacion = Console.ReadLine();
+                switch(operacion.ToUpper())
+                {
+                    case "R":
+                        Console.Write("Cuanto deseas Retirar: $");
+                        retiro = Console.ReadLine();
+                        clientes.Retirar(ClienteSeleccionado.Nombre, decimal.Parse(retiro));
+                        Console.WriteLine(banco.ObtenerFichaCliente(ClienteSeleccionado));
+                        break;
+                    case "D":
+                        Console.Write("Cuanto deseas Depositar: $");
+                        retiro = Console.ReadLine();
+                        clientes.Depositar(ClienteSeleccionado.Nombre, decimal.Parse(retiro));
+                        Console.WriteLine(banco.ObtenerFichaCliente(ClienteSeleccionado));
+                        break;
+                    case "S":
+                        break;
+                    default:
+                        operacion = null;
+                        break;
+
+                }
+            }
             
         }
+
     }
 }
