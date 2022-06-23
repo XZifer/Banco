@@ -12,7 +12,7 @@ namespace Banco.Datos
         public string ObtenerFichaCliente(Cliente c)
         {
             string ficha = "Nombre: " + c.Nombre + "\n" +
-                           "Saldo Actual: " + c.Monto + "\n";
+                           "Saldo Actual: $" + c.Monto + "\n";
             return ficha;
         }
     }

@@ -57,8 +57,8 @@ namespace Banco.Aplicacion
                     case "R":
                         Console.Write("Cuanto deseas Retirar: $");
                         retiro = Console.ReadLine();
-                        clientes.Retirar(ClienteSeleccionado.Nombre, decimal.Parse(retiro));
-                        Console.WriteLine(banco.ObtenerFichaCliente(ClienteSeleccionado));
+                        string retiraste = clientes.Retirar(ClienteSeleccionado.Nombre, decimal.Parse(retiro));
+                        Console.WriteLine(retiraste + "\n" + banco.ObtenerFichaCliente(ClienteSeleccionado));
                         break;
                     case "D":
                         Console.Write("Cuanto deseas Depositar: $");

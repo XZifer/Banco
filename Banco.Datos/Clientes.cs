@@ -54,15 +54,20 @@ namespace Banco.Datos
             c.Monto = c.Monto + deposito;
             return c.Monto;
         }
-        public decimal Retirar(string nombre, decimal retiro)
+        public string Retirar(string nombre, decimal retiro)
         {
             Cliente c;
+            string retirando = null;
             c = ObtenerClientePorNombre(nombre);
             if (c.Monto > retiro)
             {
                 c.Monto = c.Monto - retiro;
             }
-            return c.Monto;
+            else
+            {
+                retirando = "Saldo Insuficiente";
+            }
+            return retirando;
         }
         //SaldoTotal > La suma del monto de todos los clientes
         public decimal SaldoTotal(List<Cliente> lc)
