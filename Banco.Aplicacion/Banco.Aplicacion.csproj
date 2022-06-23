@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Banco.Datos\Banco.Datos.csproj" />
+    <ProjectReference Include="..\Banco.Modelos\Banco.Modelos.csproj" />
+  </ItemGroup>
+
 </Project>

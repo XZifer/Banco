@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Banco.Datos
 {
-    public class Bancos
+    public class Clientes
     {
-        public List<Cliente> CuentaHabientes { get; set; } = new List<Cliente>();
-        public Bancos()
+        public List<Cliente> ListaClientes { get; set; } = new List<Cliente>();
+        public Clientes()
         {
             Cliente C1 = new()
             {
@@ -29,15 +29,15 @@ namespace Banco.Datos
                 Monto = 63575
             };
 
-            CuentaHabientes.Add(C1);
-            CuentaHabientes.Add(C2);
-            CuentaHabientes.Add(C3);
+            ListaClientes.Add(C1);
+            ListaClientes.Add(C2);
+            ListaClientes.Add(C3);
 
         }
         public Cliente ObtenerClientePorNombre(string nombre)
         {
             Cliente elegido = null;
-            foreach (Cliente c in CuentaHabientes)
+            foreach (Cliente c in ListaClientes)
             {
                 if (c.Nombre == nombre)
                 {
