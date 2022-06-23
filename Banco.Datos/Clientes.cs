@@ -34,6 +34,7 @@ namespace Banco.Datos
             ListaClientes.Add(C3);
 
         }
+
         public Cliente ObtenerClientePorNombre(string nombre)
         {
             Cliente elegido = null;
