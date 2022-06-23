@@ -11,8 +11,12 @@ namespace Banco.Aplicacion
             Console.WriteLine("Bienvenido a su banco");
             //Identificarse
             SeleccionarCliente();
+            //Saldo Total del Banco
+            ;
 
         }
+
+        
 
         private static void SeleccionarCliente()
         {
@@ -52,6 +56,7 @@ namespace Banco.Aplicacion
             {
                 Console.WriteLine("Desea : R-Retirar D-Depositar S-Salir");
                 operacion = Console.ReadLine();
+                //Verificar operacion y realizar
                 switch(operacion.ToUpper())
                 {
                     case "R":
@@ -72,10 +77,11 @@ namespace Banco.Aplicacion
                         operacion = null;
                         break;
 
-                }
+                }                
             }
-            
+            //Mostrar Saldo final del Banco
+            decimal saldobanco = clientes.SaldoTotal(clientes.ListaClientes);
+            Console.WriteLine("El saldo del Banco es: ${0}",saldobanco);
         }
-
     }
 }

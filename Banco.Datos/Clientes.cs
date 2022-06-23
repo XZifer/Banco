@@ -76,8 +76,9 @@ namespace Banco.Datos
             foreach (Cliente c in lc)
             {
                 TotalBanco = TotalBanco + c.Monto;
-            } 
+            }
             return TotalBanco;
         }
+
     }
 }
